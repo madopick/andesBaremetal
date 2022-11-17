@@ -1,7 +1,8 @@
 #include "Driver_USART.h"
 #include "Driver_GPIO.h"
-#include <stdio.h>
 #include <string.h>
+#include <stdio.h>
+#include <ctype.h> /* for toupper() */
 
 /* USART Driver */
 extern NDS_DRIVER_USART Driver_USART1;
@@ -160,7 +161,8 @@ int main(void)
 	GPIO_Dri->Control(NDS_GPIO_SET_INTR_NEGATIVE_EDGE | NDS_GPIO_INTR_ENABLE, GPIO_SW_USED_MASK);
 
 
-	print("\n\r==== ANDES BAREMETAL ====\n\r");
+	print("\n\r====== ANDES BAREMETAL PROJECT ======\n\r");
+	printf("start main loop here\r\n");
 
     while (1)
     {
@@ -175,3 +177,27 @@ int main(void)
 
     return 0;
 }
+
+
+
+/*
+ * override putchar
+ */
+#undef putchar
+inline int putchar(int c)
+{
+	USARTdrv->Send(&c, 1);
+	wait_complete();
+
+	return c;
+}
+
+__attribute__((used))
+void nds_write(const unsigned char *buf, int size)
+{
+	int i;
+	for (i = 0; i < size; i++)
+		putchar(buf[i]);
+}
+
+

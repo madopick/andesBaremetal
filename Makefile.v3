@@ -55,7 +55,7 @@ PLATNAME = $(shell echo $(PLAT) | tr A-Z a-z)
 PLATDIR = $(BSPDIR)/v3/$(PLATNAME)
 
 DEMONAME = $(shell echo $(DEMO) | tr A-Z a-z)
-DEMODIR = examples/$(DEMONAME)
+DEMODIR = src/$(DEMONAME)
 
 ### Make variables
 
