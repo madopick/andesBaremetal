@@ -1,0 +1,31 @@
+This example program shows the usage of the SPI interface for master/slave
+communication. It demonstrates the SPI master to send/receive data to/from
+a slave.
+
+This example program needs to connect two EVB boards, the pin assignments is
+as below:
+
+AE210P/AE250/AE350:
+
+     EVB1                           EVB2
+IDE_CON1.35 (SCLK)  --connect-- IDE_CON1.35 (SCLK)
+IDE_CON1.36 (MOSI)  --connect-- IDE_CON1.36 (MOSI)
+IDE_CON1.37 (CS#)   --connect-- IDE_CON1.37 (CS#)
+IDE_CON1.38 (MISO)  --connect-- IDE_CON1.38 (MISO)
+IDE_CON1.43 (GND)   --connect-- IDE_CON1.43 (GND)
+
+
+AE300:
+
+     EVB1                           EVB2
+LCD_CON1.23 (SCLK)  --connect-- LCD_CON1.23 (SCLK)
+LCD_CON1.24 (MOSI)  --connect-- LCD_CON1.24 (MOSI)
+LCD_CON1.25 (CS#)   --connect-- LCD_CON1.25 (CS#)
+LCD_CON1.26 (MISO)  --connect-- LCD_CON1.26 (MISO)
+LCD_CON1.20 (GND)   --connect-- LCD_CON1.20 (GND)
+
+Scenario:
+
+After initialized, sets up the SPI master to 8-bit data length and bus SCLK
+frequency to 33MHz. After setting, master will send 8-byte data(value=0x0~0x7)
+to slave, and then receive the data back from slave.

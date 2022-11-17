@@ -1,0 +1,24 @@
+This example program shows the usage of the PWM interface for driving
+a speaker or buzzer. It demonstrates the PWM output channel 1 to output
+different frequency and duty cycle signal to the speaker or buzzer to
+play the notes.
+
+The speaker or buzzer is connected to EVB by the following pin connection:
+
+     Speaker                         EVB
+" + " POSITIVE <--- connect ---> IDE_CON1.3  (PWM output channel 1)
+" - " NEGATIVE <--- connect ---> IDE_CON1.43 (GND)
+
+
+Scenario:
+
+After initialized, the UART will send out the instruction messages and
+then wait for receiving data. If the number 1 ~ 7 is received (i.e.
+the '1' ~ '7' key is pressed on PC side under terminal emulation program),
+the corresponding 'Do' ~ 'Si' frequency PWM signal is output to
+speaker to play the note. That is, '1' for 'Do' note, '2' for 'Re' note
+... and so on. If the "space" is received, the PWM stop output. And if
+the "carriage return" is received, the program will exits. Otherwise,
+it will bypass the received data and continue to wait for next receiving.
+
+

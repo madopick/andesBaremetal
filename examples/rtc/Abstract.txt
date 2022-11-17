@@ -1,0 +1,10 @@
+This example program shows the usage of the RTC interface for time interrupt. 
+It demonstrates the second interrupt as elapsed 1 second and the alarm interrupt
+as rtc_time count equal to alarm_time.
+
+Scenario:
+
+After initialized, the demo program will set the rtc_time to 0 and the alarm_time
+1 minute.As 1 second elapsed, the program output UART message with "Second interrupt done". 
+Similarly, as the rtc_time count equal to the alarm_time, the program will 
+output UART message with "Alarm interrupt done".

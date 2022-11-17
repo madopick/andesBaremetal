@@ -1,0 +1,13 @@
+SDRAM 0x00000000 0x08000000 ; address base 0x00000000, max_size=128M
+{
+	EXEC 0x00000000
+	{
+		LOADADDR NEXT __text_lmastart
+		ADDR NEXT __text_start
+		* (.vector)
+		* (+ISR,+RO,+RW,+ZI)
+		STACK = 0x08000000
+	}
+}
+
+

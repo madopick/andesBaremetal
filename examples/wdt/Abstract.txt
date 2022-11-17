@@ -1,0 +1,11 @@
+This example program shows the usage of WDT interface for resetting the lock-up system.
+It demonstrates WDT to reset system when WDT takes a timeout.
+
+Scenario:
+
+WDT is initialized and Timer will periodically restart WDT.
+After Timer restart WDT 10 times, we will stop Timer.
+Then, the WDT timeout occurs, so it resets the system.
+
+If WDT has IRQ stage, then program receives NMI interrupt at timeout.
+It prints error message, and waits for system reset later.

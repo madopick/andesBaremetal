@@ -1,0 +1,11 @@
+This example program shows the usage of the GPIO interface.
+It demonstrates the GPIO to output/input application for 7-segments/switchs.
+
+Scenario:
+
+After initialized, the demo program will set GPIO direction for two 7-segments(output)
+and seven switchs(input). And then set the switchs interrupt trigger mode to negative
+edge and enable corresponding interrupts. After all setting is done, the program will
+enter to a infinite loop, waiting for user to press switch1 ~ switch7 to trigger interrupts.
+And when interrupt occurs, the two 7-segments will show the corresponding value 1 ~ 7.
+
