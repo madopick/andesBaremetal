@@ -1,0 +1,13 @@
+autoBuildEnable=false
+connectType=ICE
+connectTypeOptionData=2
+eclipse.preferences.version=1
+iceman.misc.args=
+iceman.misc.args.map={2\=}
+iceman.miscarguments=
+name=ADP-AE210P-D1088-S
+sid.misc.args=
+sid.misc.args.map={1\=}
+target.project.build.selection=true
+target.project.clean.selection=false
+targetURI=rse\://LOCALHOST/~target/ADP-AE210P-D1088-S

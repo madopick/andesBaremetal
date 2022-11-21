@@ -1,0 +1,569 @@
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           Andes Technology compact code size embedded RISC processor family
+  Version:                           0x1
+  Entry point address:               0x340
+  Start of program headers:          52 (bytes into file)
+  Start of section headers:          261892 (bytes into file)
+  Flags:                             0x32008242, AABI, Andes ELF V1.4, Andes Star v3.0, PERF1, DSP, STR
+  Size of this header:               52 (bytes)
+  Size of program headers:           32 (bytes)
+  Number of program headers:         2
+  Size of section headers:           40 (bytes)
+  Number of section headers:         20
+  Section header string table index: 17
+
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .nds32_init       PROGBITS        00000000 001000 0000a4 00  AX  0   0  4
+  [ 2] .text             PROGBITS        000000a4 0010a4 00714c 00  AX  0   0  4
+  [ 3] .rodata           PROGBITS        000071f0 0081f0 000454 00   A  0   0  4
+  [ 4] .data             PROGBITS        00200000 009000 000008 00  WA  0   0  4
+  [ 5] .sbss_w           NOBITS          00200008 009008 000028 00  WA  0   0  4
+  [ 6] .bss              NOBITS          00200030 009008 000358 00  WA  0   0  8
+  [ 7] .comment          PROGBITS        00000000 009008 00002e 01  MS  0   0  1
+  [ 8] .debug_aranges    PROGBITS        00000000 009038 0002b8 00      0   0  8
+  [ 9] .debug_info       PROGBITS        00000000 0092f0 007d11 00      0   0  1
+  [10] .debug_abbrev     PROGBITS        00000000 011001 001a52 00      0   0  1
+  [11] .debug_line       PROGBITS        00000000 012a53 007913 00      0   0  1
+  [12] .debug_frame      PROGBITS        00000000 01a368 001998 00      0   0  4
+  [13] .debug_str        PROGBITS        00000000 01bd00 01debc 01  MS  0   0  1
+  [14] .debug_loc        PROGBITS        00000000 039bbc 000160 00      0   0  1
+  [15] .debug_macro      PROGBITS        00000000 039d1c 0060ff 00      0   0  1
+  [16] .debug_ranges     PROGBITS        00000000 03fe20 000020 00      0   0  8
+  [17] .shstrtab         STRTAB          00000000 03fe40 0000c4 00      0   0  1
+  [18] .symtab           SYMTAB          00000000 040224 001f30 10     19 324  4
+  [19] .strtab           STRTAB          00000000 042154 0015cb 00      0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings)
+  I (info), L (link order), G (group), T (TLS), E (exclude), x (unknown)
+  O (extra OS processing required) o (OS specific), p (processor specific)
+
+There are no section groups in this file.
+
+Program Headers:
+  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
+  LOAD           0x001000 0x00000000 0x00000000 0x07644 0x07644 R E 0x1000
+  LOAD           0x009000 0x00200000 0x00007660 0x00008 0x00388 RW  0x1000
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .nds32_init .text .rodata 
+   01     .data .sbss_w .bss 
+
+There is no dynamic section in this file.
+
+There are no relocations in this file.
+
+The decoding of unwind sections for machine type Andes Technology compact code size embedded RISC processor family is not currently supported.
+
+Symbol table '.symtab' contains 499 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00000000     0 SECTION LOCAL  DEFAULT    1 
+     2: 000000a4     0 SECTION LOCAL  DEFAULT    2 
+     3: 000071f0     0 SECTION LOCAL  DEFAULT    3 
+     4: 00200000     0 SECTION LOCAL  DEFAULT    4 
+     5: 00200008     0 SECTION LOCAL  DEFAULT    5 
+     6: 00200030     0 SECTION LOCAL  DEFAULT    6 
+     7: 00000000     0 SECTION LOCAL  DEFAULT    7 
+     8: 00000000     0 SECTION LOCAL  DEFAULT    8 
+     9: 00000000     0 SECTION LOCAL  DEFAULT    9 
+    10: 00000000     0 SECTION LOCAL  DEFAULT   10 
+    11: 00000000     0 SECTION LOCAL  DEFAULT   11 
+    12: 00000000     0 SECTION LOCAL  DEFAULT   12 
+    13: 00000000     0 SECTION LOCAL  DEFAULT   13 
+    14: 00000000     0 SECTION LOCAL  DEFAULT   14 
+    15: 00000000     0 SECTION LOCAL  DEFAULT   15 
+    16: 00000000     0 SECTION LOCAL  DEFAULT   16 
+    17: 00000000     0 FILE    LOCAL  DEFAULT  ABS ./src/bsp/ae210p/start.o
+    18: 00000000     0 NOTYPE  LOCAL  DEFAULT    1 $c
+    19: 00000000     0 NOTYPE  LOCAL  DEFAULT    1 exception_vector
+    20: 000001b0     0 NOTYPE  LOCAL  DEFAULT    2 OS_Trap_TLB_Fill
+    21: 000001b0     0 NOTYPE  LOCAL  DEFAULT    2 OS_Trap_PTE_Not_Present
+    22: 000001b0     0 NOTYPE  LOCAL  DEFAULT    2 OS_Trap_TLB_Misc
+    23: 000001b0     0 NOTYPE  LOCAL  DEFAULT    2 OS_Trap_TLB_VLPT_Miss
+    24: 000001b0     0 NOTYPE  LOCAL  DEFAULT    2 OS_Trap_Machine_Error
+    25: 000001b0     0 NOTYPE  LOCAL  DEFAULT    2 OS_Trap_Debug_Related
+    26: 000001b0     0 NOTYPE  LOCAL  DEFAULT    2 OS_Trap_General_Exception
+    27: 000001b2     0 NOTYPE  LOCAL  DEFAULT    2 OS_Trap_Syscall
+    28: 0000033c     0 NOTYPE  LOCAL  DEFAULT    2 OS_Trap_Interrupt_UNDEF
+    29: 00000224     0 NOTYPE  LOCAL  DEFAULT    2 OS_Trap_Interrupt_HW2
+    30: 000002fc     0 NOTYPE  LOCAL  DEFAULT    2 OS_Trap_Interrupt_HW6
+    31: 00000290     0 NOTYPE  LOCAL  DEFAULT    2 OS_Trap_Interrupt_HW11
+    32: 000000a4     0 NOTYPE  LOCAL  DEFAULT    1 exception_vector_end
+    33: 000001b0     0 NOTYPE  LOCAL  DEFAULT    2 $c
+    34: 0000033c     0 NOTYPE  LOCAL  DEFAULT    2 die
+    35: 00000000     0 FILE    LOCAL  DEFAULT  ABS ae210p.c
+    36: 000000a4     0 NOTYPE  LOCAL  DEFAULT    2 $c
+    37: 00000000     0 FILE    LOCAL  DEFAULT  ABS gpio.c
+    38: 00000106     0 NOTYPE  LOCAL  DEFAULT    2 $c
+    39: 00000000     0 FILE    LOCAL  DEFAULT  ABS timer.c
+    40: 00000374     0 NOTYPE  LOCAL  DEFAULT    2 $c
+    41: 00000000     0 FILE    LOCAL  DEFAULT  ABS uart.c
+    42: 000004e8     0 NOTYPE  LOCAL  DEFAULT    2 $c
+    43: 00000000     0 FILE    LOCAL  DEFAULT  ABS crtbegin.c
+    44: 00000000     0 FILE    LOCAL  DEFAULT  ABS crtend.c
+    45: 00000000     0 FILE    LOCAL  DEFAULT  ABS startup-nds32.c
+    46: 000005d4     2 FUNC    LOCAL  DEFAULT    2 c_startup_null
+    47: 000005d4     0 NOTYPE  LOCAL  DEFAULT    2 $c
+    48: 00000000     0 FILE    LOCAL  DEFAULT  ABS cache.c
+    49: 0000067a    54 FUNC    LOCAL  DEFAULT    2 CACHE_LINE_SIZE
+    50: 0000067a     0 NOTYPE  LOCAL  DEFAULT    2 $c
+    51: 00000000     0 FILE    LOCAL  DEFAULT  ABS dma_ae210p.c
+    52: 00200030     4 OBJECT  LOCAL  DEFAULT    6 channel_active
+    53: 00200034     4 OBJECT  LOCAL  DEFAULT    6 init_cnt
+    54: 00200038   160 OBJECT  LOCAL  DEFAULT    6 channel_info
+    55: 0000091a    70 FUNC    LOCAL  DEFAULT    2 set_channel_active_flag
+    56: 0000091a     0 NOTYPE  LOCAL  DEFAULT    2 $c
+    57: 00000960    48 FUNC    LOCAL  DEFAULT    2 clear_channel_active_flag
+    58: 00000000     0 FILE    LOCAL  DEFAULT  ABS gpio_ae210p.c
+    59: 0000722c     4 OBJECT  LOCAL  DEFAULT    3 gpio_driver_version
+    60: 002000d8     4 OBJECT  LOCAL  DEFAULT    6 gpio_info
+    61: 0000110c   452 FUNC    LOCAL  DEFAULT    2 gpio_set_intr_mode
+    62: 0000110c     0 NOTYPE  LOCAL  DEFAULT    2 $c
+    63: 00000000     0 FILE    LOCAL  DEFAULT  ABS i2c_ae210p.c
+    64: 00007254     4 OBJECT  LOCAL  DEFAULT    3 DriverVersion
+    65: 00007258     4 OBJECT  LOCAL  DEFAULT    3 DriverCapabilities
+    66: 002000e0   332 OBJECT  LOCAL  DEFAULT    6 I2C0_Info
+    67: 0000725c     8 OBJECT  LOCAL  DEFAULT    3 i2c0_dma_tx
+    68: 00007264     8 OBJECT  LOCAL  DEFAULT    3 i2c0_dma_rx
+    69: 0000726c    16 OBJECT  LOCAL  DEFAULT    3 I2C0_Resources
+    70: 00001528     0 NOTYPE  LOCAL  DEFAULT    2 $c
+    71: 000016d8     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+    72: 000016dc     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+    73: 000016e0     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+    74: 000016e4     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+    75: 000016e8     0 NOTYPE  LOCAL  DEFAULT    2 $c
+    76: 00001e44     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+    77: 00001e48     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+    78: 00001e4c     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+    79: 00001e50     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+    80: 00001e54     0 NOTYPE  LOCAL  DEFAULT    2 $c
+    81: 000028f0    36 FUNC    LOCAL  DEFAULT    2 i2cx_dma_rx_event
+    82: 00000000     0 FILE    LOCAL  DEFAULT  ABS pwm_ae210p.c
+    83: 000072ac     4 OBJECT  LOCAL  DEFAULT    3 pwm_driver_version
+    84: 0020022c    56 OBJECT  LOCAL  DEFAULT    6 pwm_info
+    85: 000072b0    12 OBJECT  LOCAL  DEFAULT    3 pwm
+    86: 00002a68   184 FUNC    LOCAL  DEFAULT    2 pwmout
+    87: 00002a68     0 NOTYPE  LOCAL  DEFAULT    2 $c
+    88: 00002b20    44 FUNC    LOCAL  DEFAULT    2 pwm_get_version
+    89: 00002b4c    10 FUNC    LOCAL  DEFAULT    2 pwm_get_capabilities
+    90: 00002b56   100 FUNC    LOCAL  DEFAULT    2 pwm_initialize
+    91: 00002bba    20 FUNC    LOCAL  DEFAULT    2 pwm_uninitialize
+    92: 00002bce   210 FUNC    LOCAL  DEFAULT    2 pwm_power_control
+    93: 00002ca0   162 FUNC    LOCAL  DEFAULT    2 pwm_control
+    94: 00002d42   118 FUNC    LOCAL  DEFAULT    2 pwm_set_freq
+    95: 00002db8   148 FUNC    LOCAL  DEFAULT    2 pwm_output
+    96: 00002e4c    86 FUNC    LOCAL  DEFAULT    2 pwm_get_status
+    97: 00000000     0 FILE    LOCAL  DEFAULT  ABS rtc_ae210p.c
+    98: 000072e0     4 OBJECT  LOCAL  DEFAULT    3 rtc_driver_version
+    99: 00002ea4     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   100: 0000326c     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   101: 00003270     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   102: 00003274     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   103: 00003278     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   104: 0000327c     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   105: 00003280     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   106: 00003284     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   107: 00003288     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   108: 0000328c     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   109: 00003290     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   110: 00000000     0 FILE    LOCAL  DEFAULT  ABS spi_ae210p.c
+   111: 0000730c     4 OBJECT  LOCAL  DEFAULT    3 spi_driver_version
+   112: 00200298    56 OBJECT  LOCAL  DEFAULT    6 spi0_info
+   113: 00007310    24 OBJECT  LOCAL  DEFAULT    3 spi0_resources
+   114: 002002d0    56 OBJECT  LOCAL  DEFAULT    6 spi1_info
+   115: 00007328     8 OBJECT  LOCAL  DEFAULT    3 spi1_dma_tx
+   116: 00007330     8 OBJECT  LOCAL  DEFAULT    3 spi1_dma_rx
+   117: 00007338    24 OBJECT  LOCAL  DEFAULT    3 spi1_resources
+   118: 00003514     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   119: 000035a2    16 FUNC    LOCAL  DEFAULT    2 spi_ip_revision_number
+   120: 000035b2    66 FUNC    LOCAL  DEFAULT    2 spi_get_txfifo_size
+   121: 000035f4    22 FUNC    LOCAL  DEFAULT    2 spi_polling_spiactive
+   122: 0000360a    44 FUNC    LOCAL  DEFAULT    2 spi_get_version
+   123: 00003636    12 FUNC    LOCAL  DEFAULT    2 spi_get_capabilities
+   124: 00003642   164 FUNC    LOCAL  DEFAULT    2 spi_initialize
+   125: 000036e6    20 FUNC    LOCAL  DEFAULT    2 spi_uninitialize
+   126: 000036fa   464 FUNC    LOCAL  DEFAULT    2 spi_power_control
+   127: 000038ca   388 FUNC    LOCAL  DEFAULT    2 spi_block_send
+   128: 00003a4e   180 FUNC    LOCAL  DEFAULT    2 spi_send
+   129: 00003b02   304 FUNC    LOCAL  DEFAULT    2 spi_block_receive
+   130: 00003c32   160 FUNC    LOCAL  DEFAULT    2 spi_receive
+   131: 00003cd2   510 FUNC    LOCAL  DEFAULT    2 spi_block_transfer
+   132: 00003ed0   202 FUNC    LOCAL  DEFAULT    2 spi_transfer
+   133: 00003f9a   104 FUNC    LOCAL  DEFAULT    2 spi_get_data_count
+   134: 00004002  1040 FUNC    LOCAL  DEFAULT    2 spi_control
+   135: 00004088     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   136: 0000408c     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   137: 00004090     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   138: 00004094     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   139: 00004098     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   140: 0000409c     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   141: 000040a0     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   142: 000040a4     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   143: 000040a8     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   144: 000040ac     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   145: 000040b0     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   146: 000040b4     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   147: 000040b8     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   148: 000040bc     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   149: 000040c0     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   150: 000040c4     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   151: 000040c8     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   152: 000040cc     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   153: 000040d0     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   154: 000040d4     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   155: 000040d8     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   156: 00004412   104 FUNC    LOCAL  DEFAULT    2 spi_get_status
+   157: 0000447a   952 FUNC    LOCAL  DEFAULT    2 spi_irq_handler
+   158: 00004832    30 FUNC    LOCAL  DEFAULT    2 spi_dma_tx_event
+   159: 00004850    30 FUNC    LOCAL  DEFAULT    2 spi_dma_rx_event
+   160: 0000486e    18 FUNC    LOCAL  DEFAULT    2 spi0_get_capabilities
+   161: 00004880    26 FUNC    LOCAL  DEFAULT    2 spi0_initialize
+   162: 0000489a    18 FUNC    LOCAL  DEFAULT    2 spi0_uninitialize
+   163: 000048ac    26 FUNC    LOCAL  DEFAULT    2 spi0_power_control
+   164: 000048c6    30 FUNC    LOCAL  DEFAULT    2 spi0_send
+   165: 000048e4    30 FUNC    LOCAL  DEFAULT    2 spi0_receive
+   166: 00004902    34 FUNC    LOCAL  DEFAULT    2 spi0_transfer
+   167: 00004924    18 FUNC    LOCAL  DEFAULT    2 spi0_get_data_count
+   168: 00004936    30 FUNC    LOCAL  DEFAULT    2 spi0_control
+   169: 00004954    18 FUNC    LOCAL  DEFAULT    2 spi0_get_status
+   170: 00004978    18 FUNC    LOCAL  DEFAULT    2 spi1_get_capabilities
+   171: 0000498a    26 FUNC    LOCAL  DEFAULT    2 spi1_initialize
+   172: 000049a4    18 FUNC    LOCAL  DEFAULT    2 spi1_uninitialize
+   173: 000049b6    26 FUNC    LOCAL  DEFAULT    2 spi1_power_control
+   174: 000049d0    30 FUNC    LOCAL  DEFAULT    2 spi1_send
+   175: 000049ee    30 FUNC    LOCAL  DEFAULT    2 spi1_receive
+   176: 00004a0c    34 FUNC    LOCAL  DEFAULT    2 spi1_transfer
+   177: 00004a2e    18 FUNC    LOCAL  DEFAULT    2 spi1_get_data_count
+   178: 00004a40    30 FUNC    LOCAL  DEFAULT    2 spi1_control
+   179: 00004a5e    18 FUNC    LOCAL  DEFAULT    2 spi1_get_status
+   180: 00000000     0 FILE    LOCAL  DEFAULT  ABS usart_ae210p.c
+   181: 000073a8     4 OBJECT  LOCAL  DEFAULT    3 usart_driver_version
+   182: 00200308    48 OBJECT  LOCAL  DEFAULT    6 usart0_info
+   183: 000073ac    28 OBJECT  LOCAL  DEFAULT    3 usart0_resources
+   184: 00200338    48 OBJECT  LOCAL  DEFAULT    6 usart1_info
+   185: 000073c8    28 OBJECT  LOCAL  DEFAULT    3 usart1_resources
+   186: 00004ab8     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   187: 00004b34   120 FUNC    LOCAL  DEFAULT    2 usart_rxline_irq_handler
+   188: 00004bac    44 FUNC    LOCAL  DEFAULT    2 usart_get_version
+   189: 00004bd8    12 FUNC    LOCAL  DEFAULT    2 usart_get_capabilities
+   190: 00004be4   132 FUNC    LOCAL  DEFAULT    2 usart_initialize
+   191: 00004c68    44 FUNC    LOCAL  DEFAULT    2 usart_uninitialize
+   192: 00004c94   512 FUNC    LOCAL  DEFAULT    2 usart_power_control
+   193: 00004e94   272 FUNC    LOCAL  DEFAULT    2 usart_send
+   194: 00004fa4   224 FUNC    LOCAL  DEFAULT    2 usart_receive
+   195: 00005084    48 FUNC    LOCAL  DEFAULT    2 usart_transfer
+   196: 000050b4    48 FUNC    LOCAL  DEFAULT    2 usart_get_txcount
+   197: 000050e4    46 FUNC    LOCAL  DEFAULT    2 usart_get_rxcount
+   198: 00005112  1274 FUNC    LOCAL  DEFAULT    2 usart_control
+   199: 00005154     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   200: 00005158     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   201: 0000515c     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   202: 00005160     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   203: 00005164     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   204: 00005168     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   205: 0000516c     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   206: 000053e8     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   207: 000053ec     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   208: 000053f0     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   209: 000053f4     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   210: 000053f8     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   211: 000053fc     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   212: 00005400     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   213: 00005404     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   214: 00005408     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   215: 0000540c     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   216: 00005410     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   217: 00005414     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   218: 00005418     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   219: 0000541c     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   220: 00005420     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   221: 00005424     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   222: 00005428     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   223: 0000560c   226 FUNC    LOCAL  DEFAULT    2 usart_get_status
+   224: 000056ee   194 FUNC    LOCAL  DEFAULT    2 usart_set_modem_control
+   225: 000057b0   318 FUNC    LOCAL  DEFAULT    2 usart_get_modem_status
+   226: 000058ee   568 FUNC    LOCAL  DEFAULT    2 usart_irq_handler
+   227: 00005b26    18 FUNC    LOCAL  DEFAULT    2 usart0_get_capabilities
+   228: 00005b38    26 FUNC    LOCAL  DEFAULT    2 usart0_initialize
+   229: 00005b52    18 FUNC    LOCAL  DEFAULT    2 usart0_uninitialize
+   230: 00005b64    26 FUNC    LOCAL  DEFAULT    2 usart0_power_control
+   231: 00005b7e    30 FUNC    LOCAL  DEFAULT    2 usart0_send
+   232: 00005b9c    30 FUNC    LOCAL  DEFAULT    2 usart0_receive
+   233: 00005bba    34 FUNC    LOCAL  DEFAULT    2 usart0_transfer
+   234: 00005bdc    18 FUNC    LOCAL  DEFAULT    2 usart0_get_txcount
+   235: 00005bee    18 FUNC    LOCAL  DEFAULT    2 usart0_get_rxcount
+   236: 00005c00    30 FUNC    LOCAL  DEFAULT    2 usart0_control
+   237: 00005c1e    18 FUNC    LOCAL  DEFAULT    2 usart0_get_status
+   238: 00005c30    26 FUNC    LOCAL  DEFAULT    2 usart0_set_modem_control
+   239: 00005c4a    18 FUNC    LOCAL  DEFAULT    2 usart0_get_modem_status
+   240: 00005c6e    18 FUNC    LOCAL  DEFAULT    2 usart1_get_capabilities
+   241: 00005c80    26 FUNC    LOCAL  DEFAULT    2 usart1_initialize
+   242: 00005c9a    18 FUNC    LOCAL  DEFAULT    2 usart1_uninitialize
+   243: 00005cac    26 FUNC    LOCAL  DEFAULT    2 usart1_power_control
+   244: 00005cc6    30 FUNC    LOCAL  DEFAULT    2 usart1_send
+   245: 00005ce4    30 FUNC    LOCAL  DEFAULT    2 usart1_receive
+   246: 00005d02    34 FUNC    LOCAL  DEFAULT    2 usart1_transfer
+   247: 00005d24    18 FUNC    LOCAL  DEFAULT    2 usart1_get_txcount
+   248: 00005d36    18 FUNC    LOCAL  DEFAULT    2 usart1_get_rxcount
+   249: 00005d48    30 FUNC    LOCAL  DEFAULT    2 usart1_control
+   250: 00005d66    18 FUNC    LOCAL  DEFAULT    2 usart1_get_status
+   251: 00005d78    26 FUNC    LOCAL  DEFAULT    2 usart1_set_modem_control
+   252: 00005d92    18 FUNC    LOCAL  DEFAULT    2 usart1_get_modem_status
+   253: 00000000     0 FILE    LOCAL  DEFAULT  ABS wdt_ae210p.c
+   254: 00007454     4 OBJECT  LOCAL  DEFAULT    3 wdt_driver_version
+   255: 00200368     8 OBJECT  LOCAL  DEFAULT    6 wdt_info
+   256: 00007458    12 OBJECT  LOCAL  DEFAULT    3 wdt
+   257: 00005db8    44 FUNC    LOCAL  DEFAULT    2 wdt_get_version
+   258: 00005db8     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   259: 00005de4    10 FUNC    LOCAL  DEFAULT    2 wdt_get_capabilities
+   260: 00005dee    40 FUNC    LOCAL  DEFAULT    2 wdt_initialize
+   261: 00005e16    20 FUNC    LOCAL  DEFAULT    2 wdt_uninitialize
+   262: 00005e2a    22 FUNC    LOCAL  DEFAULT    2 wdt_restart_timer
+   263: 00005e40    10 FUNC    LOCAL  DEFAULT    2 wdt_clear_irq_status
+   264: 00005e4a   222 FUNC    LOCAL  DEFAULT    2 wdt_control
+   265: 00005e98     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   266: 00005e9c     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   267: 00005ea0     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   268: 00005ea4     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   269: 00005ea8     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   270: 00005eac     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   271: 00005eb0     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   272: 00005eb4     0 NOTYPE  LOCAL  DEFAULT    2 $d2
+   273: 00005eb8     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   274: 00005f28    40 FUNC    LOCAL  DEFAULT    2 wdt_enable
+   275: 00005f50    40 FUNC    LOCAL  DEFAULT    2 wdt_disable
+   276: 00005f78    46 FUNC    LOCAL  DEFAULT    2 wdt_get_status
+   277: 00000000     0 FILE    LOCAL  DEFAULT  ABS main.c
+   278: 00005fc4    10 FUNC    LOCAL  DEFAULT    2 GIE_ENABLE
+   279: 00005fc4     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   280: 00005fce    14 FUNC    LOCAL  DEFAULT    2 GIE_DISABLE
+   281: 00200378     4 OBJECT  LOCAL  DEFAULT    6 cnt.3168
+   282: 000060ca   150 FUNC    LOCAL  DEFAULT    2 init_interrupt
+   283: 00000000     0 FILE    LOCAL  DEFAULT  ABS _udivdi3.o
+   284: 00006304     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   285: 00000000     0 FILE    LOCAL  DEFAULT  ABS _udivmoddi4.o
+   286: 00006308     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   287: 00006308    88 FUNC    LOCAL  DEFAULT    2 fudiv_qrnnd
+   288: 00000000     0 FILE    LOCAL  DEFAULT  ABS lib_a-memcpy.o
+   289: 000064b8     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   290: 00000000     0 FILE    LOCAL  DEFAULT  ABS lib_a-memset.o
+   291: 00006520     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   292: 00000000     0 FILE    LOCAL  DEFAULT  ABS sprintf.c
+   293: 00006594     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   294: 00000000     0 FILE    LOCAL  DEFAULT  ABS vsprintf.c
+   295: 000065aa    12 FUNC    LOCAL  DEFAULT    2 vsprintf_help
+   296: 000065aa     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   297: 000065b6     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   298: 00000000     0 FILE    LOCAL  DEFAULT  ABS do_printf.c
+   299: 000065d0     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   300: 00006608     0 NOTYPE  LOCAL  DEFAULT    2 $d1
+   301: 0000660a     0 NOTYPE  LOCAL  DEFAULT    2 $d1
+   302: 0000660c     0 NOTYPE  LOCAL  DEFAULT    2 $d1
+   303: 0000660e     0 NOTYPE  LOCAL  DEFAULT    2 $d1
+   304: 00006610     0 NOTYPE  LOCAL  DEFAULT    2 $d1
+   305: 00006612     0 NOTYPE  LOCAL  DEFAULT    2 $d1
+   306: 00006614     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   307: 00000000     0 FILE    LOCAL  DEFAULT  ABS impure.c
+   308: 00200384     4 OBJECT  LOCAL  DEFAULT    6 impure_data
+   309: 00000000     0 FILE    LOCAL  DEFAULT  ABS printf_f.c
+   310: 00006a78    50 FUNC    LOCAL  DEFAULT    2 sep_frac
+   311: 00006a78     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   312: 00006aaa     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   313: 00000000     0 FILE    LOCAL  DEFAULT  ABS lib_a-strcpy.o
+   314: 0000717c     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   315: 00000000     0 FILE    LOCAL  DEFAULT  ABS lib_a-strlen.o
+   316: 00007190     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   317: 00000000     0 FILE    LOCAL  DEFAULT  ABS abs.c
+   318: 0000719c     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   319: 00000000     0 FILE    LOCAL  DEFAULT  ABS libgcc2.c
+   320: 000071a2     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   321: 00000000     0 FILE    LOCAL  DEFAULT  ABS libgcc2.c
+   322: 000071ca     0 NOTYPE  LOCAL  DEFAULT    2 $c
+   323: 00000000     0 FILE    LOCAL  DEFAULT  ABS 
+   324: 00001350    82 FUNC    GLOBAL DEFAULT    2 gpio_initialize
+   325: 00000db0    48 FUNC    GLOBAL DEFAULT    2 dma_channel_get_status
+   326: 0000717c    18 FUNC    GLOBAL DEFAULT    2 strcpy
+   327: 000071ca    38 FUNC    GLOBAL HIDDEN     2 __ashldi3
+   328: 00200288    16 OBJECT  GLOBAL DEFAULT    6 Delay_tmp
+   329: 00002a00    32 FUNC    GLOBAL DEFAULT    2 i2c0_control
+   330: 00006066   100 FUNC    GLOBAL DEFAULT    2 pit_irq_handler
+   331: 000065b6    26 FUNC    GLOBAL DEFAULT    2 vsprintf
+   332: 00006014    34 FUNC    GLOBAL DEFAULT    2 swi_irq_handler
+   333: 00002940    26 FUNC    GLOBAL DEFAULT    2 i2c0_power_control
+   334: 00001d5a   162 FUNC    GLOBAL DEFAULT    2 i2cx_slave_receive
+   335: 00200008     4 OBJECT  GLOBAL DEFAULT    5 b
+   336: 000000b4    64 FUNC    GLOBAL DEFAULT    2 c_startup
+   337: 000005d6   112 FUNC    GLOBAL DEFAULT    2 cpu_init
+   338: 000000f4    18 FUNC    GLOBAL DEFAULT    2 system_init
+   339: 0000144a    10 FUNC    GLOBAL DEFAULT    2 gpio_read
+   340: 00000c2e    92 FUNC    GLOBAL DEFAULT    2 dma_channel_enable
+   341: 000029b2    30 FUNC    GLOBAL DEFAULT    2 i2c0_slave_transmit
+   342: 0020000c     4 OBJECT  GLOBAL DEFAULT    5 f
+   343: 00200264    36 OBJECT  GLOBAL DEFAULT    6 g_rRtc_Info
+   344: 00200000     0 NOTYPE  GLOBAL DEFAULT    4 EDLM_BEGIN
+   345: 0000043a    32 FUNC    GLOBAL DEFAULT    2 timer_set_period
+   346: 00004a82    26 FUNC    GLOBAL DEFAULT    2 spi1_dma_tx_event
+   347: 000064b8   102 FUNC    GLOBAL DEFAULT    2 memcpy
+   348: 000028dc    20 FUNC    GLOBAL DEFAULT    2 i2cx_dma_tx_event
+   349: 00001fa6   676 FUNC    GLOBAL DEFAULT    2 i2c_cmpl_handler
+   350: 00001426    36 FUNC    GLOBAL DEFAULT    2 gpio_write
+   351: 00001f82    36 FUNC    GLOBAL DEFAULT    2 i2cx_signalevent
+   352: 00200010     4 OBJECT  GLOBAL DEFAULT    5 g
+   353: 00000de0    66 FUNC    GLOBAL DEFAULT    2 dma_channel_get_count
+   354: 00007668     0 NOTYPE  GLOBAL DEFAULT  ABS EILM_SIZE
+   355: 00001454    58 FUNC    GLOBAL DEFAULT    2 gpio_setdir
+   356: 00001cb8   162 FUNC    GLOBAL DEFAULT    2 i2cx_slave_transmit
+   357: 0000019c    18 FUNC    GLOBAL DEFAULT    2 gpio_irq_clear
+   358: 00006360   344 FUNC    GLOBAL HIDDEN     2 __udivmoddi4
+   359: 0000162a   464 FUNC    GLOBAL DEFAULT    2 i2cx_power_control
+   360: 00001554     6 FUNC    GLOBAL DEFAULT    2 i2c_get_capabilities
+   361: 000004ac    32 FUNC    GLOBAL DEFAULT    2 timer_irq_clear
+   362: 00000a42    54 FUNC    GLOBAL DEFAULT    2 dma_uninitialize
+   363: 00002410   162 FUNC    GLOBAL DEFAULT    2 i2cx_master_fifo_read
+   364: 00000cde   210 FUNC    GLOBAL DEFAULT    2 dma_channel_abort
+   365: 0000155a   130 FUNC    GLOBAL DEFAULT    2 i2cx_initialize
+   366: 0000045a    40 FUNC    GLOBAL DEFAULT    2 timer_irq_enable
+   367: 0000033e     0 NOTYPE  GLOBAL DEFAULT    2 default_handler
+   368: 00000388     0 NOTYPE  GLOBAL DEFAULT  ABS EDLM_SIZE
+   369: 00006304     4 FUNC    GLOBAL HIDDEN     2 __udivdi3
+   370: 000006c8    10 FUNC    GLOBAL DEFAULT    2 nds32_dcache_flush_range
+   371: 00200014     4 OBJECT  GLOBAL DEFAULT    5 global_bss
+   372: 000061bc   114 FUNC    GLOBAL DEFAULT    2 calc
+   373: 00004ab8   124 FUNC    GLOBAL DEFAULT    2 usart_set_baudrate
+   374: 000065d0  1192 FUNC    GLOBAL DEFAULT    2 do_printf
+   375: 000006b2     2 FUNC    GLOBAL DEFAULT    2 nds32_dcache_flush
+   376: 00001528    44 FUNC    GLOBAL DEFAULT    2 i2c_get_version
+   377: 0000056a    70 FUNC    GLOBAL DEFAULT    2 uart_puts
+   378: 000013a2    50 FUNC    GLOBAL DEFAULT    2 gpio_uninitialize
+   379: 00004a9c    26 FUNC    GLOBAL DEFAULT    2 spi1_dma_rx_event
+   380: 00003462   118 FUNC    GLOBAL DEFAULT    2 rtc_period_irq_handler
+   381: 0000292e    18 FUNC    GLOBAL DEFAULT    2 i2c0_uninitialize
+   382: 00002ed0   146 FUNC    GLOBAL DEFAULT    2 rtc_initialize
+   383: 00006036    48 FUNC    GLOBAL DEFAULT    2 gpio_callback
+   384: 000025b6   346 FUNC    GLOBAL DEFAULT    2 i2cx_slave_addr_hit_handl
+   385: 00000374    66 FUNC    GLOBAL DEFAULT    2 timer_init
+   386: 000006e8    56 FUNC    GLOBAL DEFAULT    2 unaligned_cache_line_move
+   387: 000029d0    30 FUNC    GLOBAL DEFAULT    2 i2c0_slave_receive
+   388: 000071a2    40 FUNC    GLOBAL HIDDEN     2 __lshrdi3
+   389: 00001324    44 FUNC    GLOBAL DEFAULT    2 gpio_get_version
+   390: 00000720    70 FUNC    GLOBAL DEFAULT    2 nds32_dma_clean_range
+   391: 000015dc    78 FUNC    GLOBAL DEFAULT    2 i2cx_uninitialize
+   392: 00002986    44 FUNC    GLOBAL DEFAULT    2 i2c0_master_receive
+   393: 00200370     8 OBJECT  GLOBAL DEFAULT    6 f3
+   394: 0000033e     0 NOTYPE  WEAK   DEFAULT    2 spi2_irq_handler
+   395: 0000309c   134 FUNC    GLOBAL DEFAULT    2 rtc_get_time
+   396: 0000741c    56 OBJECT  GLOBAL DEFAULT    3 Driver_USART1
+   397: 0000033e     0 NOTYPE  WEAK   DEFAULT    2 uart2_irq_handler
+   398: 000003b6    40 FUNC    GLOBAL DEFAULT    2 timer_start
+   399: 000022fa   224 FUNC    GLOBAL DEFAULT    2 i2cx_slave_fifo_write
+   400: 000013d4    48 FUNC    GLOBAL DEFAULT    2 gpio_pinwrite
+   401: 002000dc     4 OBJECT  GLOBAL DEFAULT    6 check
+   402: 00002914    26 FUNC    GLOBAL DEFAULT    2 i2c0_initialize
+   403: 000004e8    98 FUNC    GLOBAL DEFAULT    2 uart_init
+   404: 00006aaa  1746 FUNC    GLOBAL DEFAULT    2 _printf_float
+   405: 000004cc    28 FUNC    GLOBAL DEFAULT    2 timer_irq_status
+   406: 00005c5c    18 FUNC    GLOBAL DEFAULT    2 uart0_irq_handler
+   407: 00002ea4    44 FUNC    GLOBAL DEFAULT    2 rtc_get_version
+   408: 00000000     0 NOTYPE  GLOBAL DEFAULT  ABS NDS_SAG_LMA_EILM
+   409: 00000340    50 FUNC    GLOBAL DEFAULT    2 _start
+   410: 00007350    44 OBJECT  GLOBAL DEFAULT    3 Driver_SPI0
+   411: 00006160    22 FUNC    GLOBAL DEFAULT    2 geti
+   412: 000006de    10 FUNC    GLOBAL DEFAULT    2 nds32_icache_invalidate_r
+   413: 000029ee    18 FUNC    GLOBAL DEFAULT    2 i2c0_get_datacount
+   414: 00002a4c    26 FUNC    GLOBAL DEFAULT    2 i2c0_dma_rx_event
+   415: 00002710   460 FUNC    GLOBAL DEFAULT    2 i2c_irq_handler
+   416: 002001c0     0 NOTYPE  WEAK   DEFAULT    4 _SDA_BASE_
+   417: 000006be    10 FUNC    GLOBAL DEFAULT    2 nds32_dcache_invalidate_r
+   418: 0000224a   176 FUNC    GLOBAL DEFAULT    2 i2cx_master_fifo_write
+   419: 00200018     4 OBJECT  GLOBAL DEFAULT    5 c
+   420: 00001dfc    16 FUNC    GLOBAL DEFAULT    2 i2cx_get_datacount
+   421: 0000148e   154 FUNC    GLOBAL DEFAULT    2 gpio_control
+   422: 00200000     4 OBJECT  GLOBAL DEFAULT    4 global
+   423: 00001f72    16 FUNC    GLOBAL DEFAULT    2 i2cx_getstatus
+   424: 00000408    50 FUNC    GLOBAL DEFAULT    2 timer_read
+   425: 00000646    52 FUNC    GLOBAL DEFAULT    2 init
+   426: 00000766   366 FUNC    GLOBAL DEFAULT    2 nds32_dma_inv_range
+   427: 000034d8    60 FUNC    GLOBAL DEFAULT    2 rtc_alarm_irq_handler
+   428: 00003434    16 FUNC    GLOBAL DEFAULT    2 rtc_get_status
+   429: 000005b0    36 FUNC    GLOBAL DEFAULT    2 outbyte
+   430: 00007230    36 OBJECT  GLOBAL DEFAULT    3 Driver_GPIO
+   431: 00000000     0 NOTYPE  GLOBAL DEFAULT  ABS EILM_BEGIN
+   432: 00000c8a    84 FUNC    GLOBAL DEFAULT    2 dma_channel_disable
+   433: 000024b2   196 FUNC    GLOBAL DEFAULT    2 i2cx_slave_fifo_read
+   434: 000006d2    10 FUNC    GLOBAL DEFAULT    2 nds32_dcache_writeback_ra
+   435: 00000000     0 NOTYPE  WEAK   DEFAULT    1 _RELAX_END_
+   436: 00200008     0 NOTYPE  GLOBAL DEFAULT    5 __bss_start
+   437: 00006520   114 FUNC    GLOBAL DEFAULT    2 memset
+   438: 00002a32    26 FUNC    GLOBAL DEFAULT    2 i2c0_dma_tx_event
+   439: 0000622e   214 FUNC    GLOBAL DEFAULT    2 main
+   440: 0000054a    32 FUNC    GLOBAL DEFAULT    2 uart_putc
+   441: 000073e4    56 OBJECT  GLOBAL DEFAULT    3 Driver_USART0
+   442: 00003444    30 FUNC    GLOBAL DEFAULT    2 rtc_signal_event
+   443: 0020001c     4 OBJECT  GLOBAL DEFAULT    5 d
+   444: 00002f62   100 FUNC    GLOBAL DEFAULT    2 rtc_uninitialize
+   445: 00004a70    18 FUNC    GLOBAL DEFAULT    2 spi1_irq_handler
+   446: 00000990   178 FUNC    GLOBAL DEFAULT    2 dma_initialize
+   447: 00200380     4 OBJECT  GLOBAL DEFAULT    6 _NDS32_REENT__errno
+   448: 00003514   142 FUNC    GLOBAL DEFAULT    2 delay
+   449: 000023da    54 FUNC    GLOBAL DEFAULT    2 i2cx_fifo_empty_handler
+   450: 00001e0c   358 FUNC    GLOBAL DEFAULT    2 i2cx_control
+   451: 00006594    22 FUNC    GLOBAL DEFAULT    2 sprintf
+   452: 00007464    40 OBJECT  GLOBAL DEFAULT    3 Driver_WDT
+   453: 000072e4    40 OBJECT  GLOBAL DEFAULT    3 Driver_RTC
+   454: 00001a66   594 FUNC    GLOBAL DEFAULT    2 i2cx_master_receive
+   455: 00200004     4 OBJECT  GLOBAL DEFAULT    4 _impure_ptr
+   456: 0000727c    48 OBJECT  GLOBAL DEFAULT    3 Driver_I2C0
+   457: 00200020     4 OBJECT  GLOBAL DEFAULT    5 h
+   458: 000003de    42 FUNC    GLOBAL DEFAULT    2 timer_stop
+   459: 00000482    42 FUNC    GLOBAL DEFAULT    2 timer_irq_disable
+   460: 000006b4    10 FUNC    GLOBAL DEFAULT    2 nds32_dcache_clean_range
+   461: 0000033e     0 NOTYPE  WEAK   DEFAULT    2 ldma_irq_handler
+   462: 00004966    18 FUNC    GLOBAL DEFAULT    2 spi0_irq_handler
+   463: 000012d0    84 FUNC    GLOBAL DEFAULT    2 gpio_irq_handler
+   464: 00006176    70 FUNC    GLOBAL DEFAULT    2 calc2
+   465: 00003122   142 FUNC    GLOBAL DEFAULT    2 rtc_set_alarm
+   466: 000031b0   108 FUNC    GLOBAL DEFAULT    2 rtc_get_alarm
+   467: 000072bc    36 OBJECT  GLOBAL DEFAULT    3 Driver_PWM0
+   468: 00000000     0 NOTYPE  WEAK   DEFAULT  ABS _ITB_BASE_
+   469: 00007660     0 NOTYPE  GLOBAL DEFAULT  ABS __data_lmastart
+   470: 00001404    34 FUNC    GLOBAL DEFAULT    2 gpio_pinread
+   471: 00000a78   438 FUNC    GLOBAL DEFAULT    2 dma_channel_configure
+   472: 00200008     0 NOTYPE  GLOBAL DEFAULT    5 _edata
+   473: 00200388     0 NOTYPE  GLOBAL DEFAULT    6 _end
+   474: 0000295a    44 FUNC    GLOBAL DEFAULT    2 i2c0_master_transmit
+   475: 0000033e     0 NOTYPE  WEAK   DEFAULT    2 bmc_irq_handler
+   476: 00005da4    18 FUNC    GLOBAL DEFAULT    2 uart1_irq_handler
+   477: 00005fa6    30 FUNC    GLOBAL DEFAULT    2 nmi_handler
+   478: 0000033e     0 NOTYPE  WEAK   DEFAULT    2 general_except_handler
+   479: 00200024     4 OBJECT  GLOBAL DEFAULT    5 a
+   480: 000006dc     2 FUNC    GLOBAL DEFAULT    2 nds32_icache_flush
+   481: 00005fdc    56 FUNC    GLOBAL DEFAULT    2 syscall_handler
+   482: 000006b0     2 FUNC    GLOBAL DEFAULT    2 nds32_dcache_invalidate
+   483: 00200028     4 OBJECT  GLOBAL DEFAULT    5 e
+   484: 00002ff2   170 FUNC    GLOBAL DEFAULT    2 rtc_set_time
+   485: 000008d4    70 FUNC    GLOBAL DEFAULT    2 nds32_dma_flush_range
+   486: 00000e22   746 FUNC    GLOBAL DEFAULT    2 dma_irq_handler
+   487: 00007190    12 FUNC    GLOBAL DEFAULT    2 strlen
+   488: 00280000     0 NOTYPE  GLOBAL DEFAULT  ABS _stack
+   489: 000017fa   620 FUNC    GLOBAL DEFAULT    2 i2cx_master_transmit
+   490: 0000719c     6 FUNC    GLOBAL DEFAULT    2 abs
+   491: 00200000     0 NOTYPE  GLOBAL DEFAULT    4 __data_start
+   492: 00000106   150 FUNC    GLOBAL DEFAULT    2 gpio_init
+   493: 000000a4    16 FUNC    GLOBAL DEFAULT    2 _nds32_init_mem
+   494: 0000321c   536 FUNC    GLOBAL DEFAULT    2 rtc_control
+   495: 00002576    64 FUNC    GLOBAL DEFAULT    2 i2cx_fifo_full_handler
+   496: 0000737c    44 OBJECT  GLOBAL DEFAULT    3 Driver_SPI1
+   497: 00002fc6    44 FUNC    GLOBAL DEFAULT    2 rtc_power_control
+   498: 00002a20    18 FUNC    GLOBAL DEFAULT    2 i2c0_get_status
+
+No version information found in this file.

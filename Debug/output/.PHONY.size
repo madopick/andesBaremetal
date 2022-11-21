@@ -1,0 +1,2 @@
+   text (code + rodata)	   data	    bss	    dec	    hex	filename
+  30276 (29168 +   1108)	      8	    896	  31180	   79cc	demo-int.adx
