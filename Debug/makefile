@@ -41,9 +41,9 @@ endif
 -include ../makefile.defs
 
 # Add inputs and outputs from these tool invocations to the build variables 
-BUILD_ARTIFACT_FILE_BASE_NAME = demo-int
+BUILD_ARTIFACT_FILE_BASE_NAME = baremetal
 
-LINKER_OUTPUTS = demo-int.adx
+LINKER_OUTPUTS = baremetal.adx
 
 GPROF_OUT += \
 ../gmon.sum ../gmon.out \
@@ -69,47 +69,47 @@ $(SECONDARY_OUTPUT_PATH)/.PHONY.size \
 LDSAG_OUT = $(SECONDARY_OUTPUT_PATH)/nds.ld
 
 # All Target
-all: demo-int.adx secondary-outputs
+all: baremetal.adx secondary-outputs
 
 # Tool invocations
-demo-int.adx: $(OBJS) $(USER_OBJS) $(LDSAG_OUT)
+baremetal.adx: $(OBJS) $(USER_OBJS) $(LDSAG_OUT)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Andes C Linker'
-	$(CROSS_COMPILE)gcc -O0 -nostartfiles -static -mcmodel=medium -T"$(LDSAG_OUT)" -mext-dsp -ldsp -lm -o "demo-int.adx" $(OBJS) $(USER_OBJS) $(LIBS)
+	$(CROSS_COMPILE)gcc -O0 -nostartfiles -static -mcmodel=medium -T"$(LDSAG_OUT)" -mext-dsp -ldsp -lm -o "baremetal.adx" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-$(foreach subdir,$(SUBDIRS),$(wildcard $(subdir)/*.gcda) $(wildcard $(subdir)/*.gcno)): demo-int.adx $(OBJS) $(USER_OBJS) $(LDSAG_OUT)
-../gmon.sum ../gmon.out: demo-int.adx $(OBJS) $(USER_OBJS) $(LDSAG_OUT)
-$(SECONDARY_OUTPUT_PATH)/pwr: demo-int.adx $(OBJS) $(USER_OBJS) $(LDSAG_OUT)
+$(foreach subdir,$(SUBDIRS),$(wildcard $(subdir)/*.gcda) $(wildcard $(subdir)/*.gcno)): baremetal.adx $(OBJS) $(USER_OBJS) $(LDSAG_OUT)
+../gmon.sum ../gmon.out: baremetal.adx $(OBJS) $(USER_OBJS) $(LDSAG_OUT)
+$(SECONDARY_OUTPUT_PATH)/pwr: baremetal.adx $(OBJS) $(USER_OBJS) $(LDSAG_OUT)
 
 $(SECONDARY_OUTPUT_PATH)/symbol.txt: $(LINKER_OUTPUTS)
 	@echo 'Invoking: NM (symbol listing)'
-	$(CROSS_COMPILE)nm -n -l -C "demo-int.adx" > $(SECONDARY_OUTPUT_PATH)/symbol.txt
+	$(CROSS_COMPILE)nm -n -l -C "baremetal.adx" > $(SECONDARY_OUTPUT_PATH)/symbol.txt
 	@echo 'Finished building: $@'
 	@echo ' '
 
 $(SECONDARY_OUTPUT_PATH)/readelf.txt: $(LINKER_OUTPUTS)
 	@echo 'Invoking: Readelf (ELF info listing)'
-	$(CROSS_COMPILE)readelf -a "demo-int.adx" > $(SECONDARY_OUTPUT_PATH)/readelf.txt
+	$(CROSS_COMPILE)readelf -a "baremetal.adx" > $(SECONDARY_OUTPUT_PATH)/readelf.txt
 	@echo 'Finished building: $@'
 	@echo ' '
 
 : $(LINKER_OUTPUTS)
 	@echo 'Invoking: Objdump (disassembly)'
-	$(CROSS_COMPILE)objdump -x -d -C "demo-int.adx" >
+	$(CROSS_COMPILE)objdump -x -d -C "baremetal.adx" >
 	@echo 'Finished building: $@'
 	@echo ' '
 
 $(SECONDARY_OUTPUT_PATH)/$(BUILD_ARTIFACT_FILE_BASE_NAME).bin: $(LINKER_OUTPUTS)
 	@echo 'Invoking: Objcopy (object content copy)'
-	$(CROSS_COMPILE)objcopy -S -O binary "demo-int.adx" $(SECONDARY_OUTPUT_PATH)/$(BUILD_ARTIFACT_FILE_BASE_NAME).bin
+	$(CROSS_COMPILE)objcopy -S -O binary "baremetal.adx" $(SECONDARY_OUTPUT_PATH)/$(BUILD_ARTIFACT_FILE_BASE_NAME).bin
 	@echo 'Finished building: $@'
 	@echo ' '
 
 $(SECONDARY_OUTPUT_PATH)/.PHONY.size: $(LINKER_OUTPUTS)
 	@echo 'Invoking: Size (section size listing)'
-	$(CROSS_COMPILE)size  "demo-int.adx" | tee $(SECONDARY_OUTPUT_PATH)/.PHONY.size
+	$(CROSS_COMPILE)size  "baremetal.adx" | tee $(SECONDARY_OUTPUT_PATH)/.PHONY.size
 	@echo 'Finished building: $@'
 	@echo ' '
 
@@ -121,7 +121,7 @@ $(SECONDARY_OUTPUT_PATH)/nds.ld: $(SAG_SRCS)
 
 # Other Targets
 clean:
-	-$(RM) $(GPROF_OUT)$(PWR_OUT)$(SIZE_OUTPUTS)$(READELF_OUTPUTS)$(LDSAG_OUT)$(EXECUTABLES)$(OBJS)$(SYMBOL_OUTPUTS)$(S_UPPER_DEPS)$(GCOV_OUT)$(C_DEPS)$(OBJCOPY_OUTPUTS) demo-int.adx
+	-$(RM) $(GPROF_OUT)$(PWR_OUT)$(SIZE_OUTPUTS)$(READELF_OUTPUTS)$(LDSAG_OUT)$(EXECUTABLES)$(OBJS)$(SYMBOL_OUTPUTS)$(S_UPPER_DEPS)$(GCOV_OUT)$(C_DEPS)$(OBJCOPY_OUTPUTS) baremetal.adx
 	-@echo ' '
 
 secondary-outputs: $(SYMBOL_OUTPUTS) $(READELF_OUTPUTS) $(OBJCOPY_OUTPUTS) $(SIZE_OUTPUTS)

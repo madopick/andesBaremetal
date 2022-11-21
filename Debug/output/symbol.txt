@@ -241,78 +241,79 @@
 00005f50 t wdt_disable	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/wdt_ae210p.c:167
 00005f78 t wdt_get_status	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/wdt_ae210p.c:179
 00005fa6 T nmi_handler	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/wdt_ae210p.c:204
-00005fc4 t GIE_ENABLE	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:31
-00005fce t GIE_DISABLE	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:36
-00005fdc T syscall_handler	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:42
-00006014 T swi_irq_handler	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:54
-00006036 T gpio_callback	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:70
-00006066 T pit_irq_handler	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:127
-000060ca t init_interrupt	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:152
-00006160 T geti	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:179
-00006176 T calc2	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:187
-000061bc T calc	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:199
-0000622e T main	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:218
-00006304 T __udivdi3	/home/sqa/build-bspv423/build-system-3/source-packages/gcc-4.9.4-bsp-v4_2_0-branch/libgcc/config/nds32/lib1asmsrc-mculib.S:818
-00006308 t fudiv_qrnnd	/home/sqa/build-bspv423/build-system-3/source-packages/gcc-4.9.4-bsp-v4_2_0-branch/libgcc/config/nds32/lib1asmsrc-mculib.S:961
-00006360 T __udivmoddi4	/home/sqa/build-bspv423/build-system-3/source-packages/gcc-4.9.4-bsp-v4_2_0-branch/libgcc/config/nds32/lib1asmsrc-mculib.S:1152
-000064b8 T memcpy
-00006520 T memset
-00006594 T sprintf
-000065aa t vsprintf_help
-000065b6 T vsprintf
-000065d0 T do_printf
-00006a78 t sep_frac
-00006aaa T _printf_float
-0000717c T strcpy
-00007190 T strlen
-0000719c T abs
-000071a2 T __lshrdi3	/home/sqa/build-bspv423/build-system-3/source-packages/gcc-4.9.4-bsp-v4_2_0-branch/libgcc/libgcc2.c:403
-000071ca T __ashldi3	/home/sqa/build-bspv423/build-system-3/source-packages/gcc-4.9.4-bsp-v4_2_0-branch/libgcc/libgcc2.c:431
-0000722c r gpio_driver_version	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/gpio_ae210p.c:13
-00007230 R Driver_GPIO	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/gpio_ae210p.c:137
-00007254 r DriverVersion	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/i2c_ae210p.c:18
-00007258 r DriverCapabilities	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/i2c_ae210p.c:24
-0000725c r i2c0_dma_tx	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/i2c_ae210p.c:34
-00007264 r i2c0_dma_rx	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/i2c_ae210p.c:43
-0000726c r I2C0_Resources	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/i2c_ae210p.c:51
-0000727c R Driver_I2C0	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/i2c_ae210p.c:1304
-000072ac r pwm_driver_version	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/pwm_ae210p.c:17
-000072b0 r pwm	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/pwm_ae210p.c:21
-000072bc R Driver_PWM0	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/pwm_ae210p.c:274
-000072e0 r rtc_driver_version	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/rtc_ae210p.c:14
-000072e4 R Driver_RTC	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/rtc_ae210p.c:409
-0000730c r spi_driver_version	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/spi_ae210p.c:32
-00007310 r spi0_resources	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/spi_ae210p.c:48
-00007328 r spi1_dma_tx	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/spi_ae210p.c:72
-00007330 r spi1_dma_rx	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/spi_ae210p.c:77
-00007338 r spi1_resources	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/spi_ae210p.c:80
-00007350 R Driver_SPI0	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/spi_ae210p.c:1067
-0000737c R Driver_SPI1	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/spi_ae210p.c:1141
-000073a8 r usart_driver_version	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/usart_ae210p.c:18
-000073ac r usart0_resources	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/usart_ae210p.c:46
-000073c8 r usart1_resources	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/usart_ae210p.c:108
-000073e4 R Driver_USART0	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/usart_ae210p.c:1251
-0000741c R Driver_USART1	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/usart_ae210p.c:1329
-00007454 r wdt_driver_version	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/wdt_ae210p.c:18
-00007458 r wdt	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/wdt_ae210p.c:25
-00007464 R Driver_WDT	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/wdt_ae210p.c:190
-00007660 A __data_lmastart
-00007668 A EILM_SIZE
+00005fc4 t GIE_ENABLE	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:49
+00005fce t GIE_DISABLE	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:54
+00005fdc T syscall_handler	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:60
+00006014 T swi_irq_handler	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:72
+00006036 T gpio_callback	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:88
+00006066 T pit_irq_handler	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:150
+00006082 t init_interrupt	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:166
+00006150 T geti	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:206
+00006166 T calc2	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:214
+000061ac T calc	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:221
+0000621e T main	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:240
+000062f0 T __udivdi3	/home/sqa/build-bspv423/build-system-3/source-packages/gcc-4.9.4-bsp-v4_2_0-branch/libgcc/config/nds32/lib1asmsrc-mculib.S:818
+000062f4 t fudiv_qrnnd	/home/sqa/build-bspv423/build-system-3/source-packages/gcc-4.9.4-bsp-v4_2_0-branch/libgcc/config/nds32/lib1asmsrc-mculib.S:961
+0000634c T __udivmoddi4	/home/sqa/build-bspv423/build-system-3/source-packages/gcc-4.9.4-bsp-v4_2_0-branch/libgcc/config/nds32/lib1asmsrc-mculib.S:1152
+000064a4 T memcpy
+0000650c T memset
+00006580 T sprintf
+00006596 t vsprintf_help
+000065a2 T vsprintf
+000065bc T do_printf
+00006a64 t sep_frac
+00006a96 T _printf_float
+00007168 T strcpy
+0000717c T strlen
+00007188 T abs
+0000718e T __lshrdi3	/home/sqa/build-bspv423/build-system-3/source-packages/gcc-4.9.4-bsp-v4_2_0-branch/libgcc/libgcc2.c:403
+000071b6 T __ashldi3	/home/sqa/build-bspv423/build-system-3/source-packages/gcc-4.9.4-bsp-v4_2_0-branch/libgcc/libgcc2.c:431
+00007218 r gpio_driver_version	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/gpio_ae210p.c:13
+0000721c R Driver_GPIO	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/gpio_ae210p.c:137
+00007240 r DriverVersion	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/i2c_ae210p.c:18
+00007244 r DriverCapabilities	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/i2c_ae210p.c:24
+00007248 r i2c0_dma_tx	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/i2c_ae210p.c:34
+00007250 r i2c0_dma_rx	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/i2c_ae210p.c:43
+00007258 r I2C0_Resources	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/i2c_ae210p.c:51
+00007268 R Driver_I2C0	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/i2c_ae210p.c:1304
+00007298 r pwm_driver_version	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/pwm_ae210p.c:17
+0000729c r pwm	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/pwm_ae210p.c:21
+000072a8 R Driver_PWM0	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/pwm_ae210p.c:274
+000072cc r rtc_driver_version	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/rtc_ae210p.c:14
+000072d0 R Driver_RTC	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/rtc_ae210p.c:409
+000072f8 r spi_driver_version	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/spi_ae210p.c:32
+000072fc r spi0_resources	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/spi_ae210p.c:48
+00007314 r spi1_dma_tx	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/spi_ae210p.c:72
+0000731c r spi1_dma_rx	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/spi_ae210p.c:77
+00007324 r spi1_resources	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/spi_ae210p.c:80
+0000733c R Driver_SPI0	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/spi_ae210p.c:1067
+00007368 R Driver_SPI1	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/spi_ae210p.c:1141
+00007394 r usart_driver_version	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/usart_ae210p.c:18
+00007398 r usart0_resources	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/usart_ae210p.c:46
+000073b4 r usart1_resources	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/usart_ae210p.c:108
+000073d0 R Driver_USART0	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/usart_ae210p.c:1251
+00007408 R Driver_USART1	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/usart_ae210p.c:1329
+00007440 r wdt_driver_version	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/wdt_ae210p.c:18
+00007444 r wdt	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/wdt_ae210p.c:25
+00007450 R Driver_WDT	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/wdt_ae210p.c:190
+000075c0 A __data_lmastart
+000075c8 A EILM_SIZE
 00200000 D EDLM_BEGIN
 00200000 D __data_start
-00200000 D global	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:214
+00200000 D global	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:236
 00200004 D _impure_ptr
 00200008 S __bss_start
 00200008 S _edata
-00200008 S b	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:216
-0020000c S f	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:216
-00200010 S g	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:216
-00200014 S global_bss	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:215
-00200018 S c	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:216
-0020001c S d	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:216
-00200020 S h	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:216
-00200024 S a	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:216
-00200028 S e	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:216
+00200008 S b	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:238
+0020000c S f	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:238
+00200010 S g	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:238
+00200014 S global_bss	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:237
+00200018 S c	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:238
+0020001c S d	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:238
+00200020 S h	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:238
+00200024 S GPIO_Dri	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:46
+00200028 S a	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:238
+0020002c S e	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:238
 00200030 b channel_active	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/dma_ae210p.c:19
 00200034 b init_cnt	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/dma_ae210p.c:20
 00200038 b channel_info	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/dma_ae210p.c:22
@@ -328,8 +329,8 @@
 00200308 b usart0_info	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/usart_ae210p.c:31
 00200338 b usart1_info	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/usart_ae210p.c:93
 00200368 b wdt_info	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/driver/ae210p/wdt_ae210p.c:22
-00200370 B f3	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:177
-00200378 b cnt.3168
+00200370 B f3	/cygdrive/c/Andestech/sourcetree/baremetal/Debug/../src/vt/main.c:204
+00200378 b cnt.3310
 00200380 B _NDS32_REENT__errno
 00200384 b impure_data
 00200388 B _end

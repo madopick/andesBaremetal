@@ -1,2 +1,2 @@
    text (code + rodata)	   data	    bss	    dec	    hex	filename
-  30276 (29168 +   1108)	      8	    896	  31180	   79cc	demo-int.adx
+  30136 (29148 +    988)	      8	    896	  31040	   7940	baremetal.adx

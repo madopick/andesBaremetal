@@ -7,7 +7,10 @@
 #include "config.h"
 #include "platform.h"
 #include <stdio.h>
+
 #include "Driver_GPIO.h"
+#include "Driver_RTC.h"
+#include "Driver_USART.h"
 
 #ifdef CFG_GCOV
 #include <stdlib.h>
@@ -16,17 +19,32 @@
 #define NDS32_HWINT_ID(hw)      NDS32_INT_H##hw
 #define NDS32_HWINT(hw)         NDS32_HWINT_ID(hw)
 
-#define TICK_HZ         1
+#define TICK_HZ         		1
 
 #ifdef CFG_SIMU
- #define SIMU_FACTOR    (4)
+ #define SIMU_FACTOR    		(4)
 #else
- #define SIMU_FACTOR    (0)
+ #define SIMU_FACTOR    		(0)
 #endif
 
-#define TIMER1          0
-#define TIMER2          1
-#define TIMER3          2
+#define TIMER1          		0
+#define TIMER2          		1
+#define TIMER3          		2
+
+
+#define GPIO_SW_USED_MASK     	0xff
+#define GPIO_7SEG_USED_MASK   	0xffff0000
+
+#define GPIO_7SEG1_OFFSET     	16
+#define GPIO_7SEG2_OFFSET     	24
+
+///External HW driver
+extern NDS_DRIVER_RTC 	Driver_RTC;
+extern NDS_DRIVER_GPIO 	Driver_GPIO;
+extern NDS_DRIVER_USART Driver_USART1;
+
+NDS_DRIVER_GPIO*	GPIO_Dri;
+
 
 static inline void GIE_ENABLE()
 {
@@ -39,6 +57,11 @@ static inline void GIE_DISABLE()
 	__nds32__dsb();
 }
 
+
+/**************************************************************
+ * @brief 	Andes Syscall handler
+ * @retval 	None
+ **************************************************************/
 void syscall_handler(void)
 {
 	static int cnt = 0;
@@ -51,6 +74,11 @@ void syscall_handler(void)
 		__nds32__syscall(0x5000);
 }
 
+
+/**************************************************************
+ * @brief 	Andes Software Int
+ * @retval 	None
+ **************************************************************/
 void swi_irq_handler(void)
 {
 	uart_puts("A software interrupt occurs ...\n");
@@ -124,35 +152,44 @@ void gpio_callback(uint32_t event)
 //	uart_puts("* End of GPIO ISR it takes 6 secs *\n");
 //}
 
+
+/**************************************************************
+ * @brief	Timer interrupt
+ * @retval 	None
+ **************************************************************/
 void timer_irq_handler(void)
 {
-	uart_puts("* Enter Timer ISR, It comes in every 4 secs. *\n");
+	uart_puts("* Enter Timer ISR, It comes in every 4 secs. *\r\n");
 
 	/* Clear HW/Timer1 interrupt status */
 	timer_irq_clear(TIMER1);
 
-	uart_puts("* Top-Half of Timer ISR is done. Enable GIE *\n");
 	GIE_ENABLE();
-
-	/* This service will take 2 secs */
-	unsigned int period = (2 * (PCLKFREQ / TICK_HZ)) >> SIMU_FACTOR;
-	timer_set_period(TIMER3, period << 1);
-	timer_start(TIMER3);
-
-	while(1) {
-		unsigned int tm3_cntr = timer_read(TIMER3);
-		if (tm3_cntr > period) break;
-	}
-
-	timer_stop(TIMER3);
-
-	uart_puts("* Bottom-Half of Timer ISR is done and it takes 2 secs. Enable it self.*\n");
 }
 
+
+
+/**************************************************************
+ * @brief	Interrupt setup
+ * @retval 	None
+ **************************************************************/
 static void init_interrupt(void)
 {
 	/* Init GPIO */
+#if 0
 	gpio_init(GPIO_USED_MASK);
+#else
+	GPIO_Dri 	= &Driver_GPIO;
+	GPIO_Dri->Initialize(gpio_callback);
+
+	/* set GPIO direction (7-segments: output, switchs: input) */
+	GPIO_Dri->SetDir(GPIO_7SEG_USED_MASK, NDS_GPIO_DIR_OUTPUT);
+	GPIO_Dri->SetDir(GPIO_SW_USED_MASK, NDS_GPIO_DIR_INPUT);
+
+	/* Set GPIO interrupt mode to negative edge and enable it */
+	GPIO_Dri->Control(NDS_GPIO_SET_INTR_NEGATIVE_EDGE | NDS_GPIO_INTR_ENABLE, GPIO_SW_USED_MASK);
+#endif
+
 
 	/* Init TIMER */
 	timer_init();
@@ -188,11 +225,6 @@ NOINLINE int calc2(int a, int b, int c, int d, int e, int f, int g, int h)
 {
 	int i = geti();
 	a = a + b + c + d + e + f + g + h + i;
-#if (defined(__NDS32_EXT_FPU_DP__) || defined(__NDS32_EXT_FPU_SP__))
-	double f1 = 0.22;
-	double f2 = 0.8;
-	f3 = f1 + f2;
-#endif
 	return a;   /* a = 1800 */
 }
 
@@ -236,7 +268,7 @@ int main(void)
 	/* This is syscall test.
 	 * You can comment it if it is not necessary. */
 	/* Generate system call */
-	__nds32__syscall(0x5000);
+	//__nds32__syscall(0x5000);
 
 	/* Initialize interrupt */
 	init_interrupt();
@@ -246,21 +278,15 @@ int main(void)
 	/* Generate software interrupt */
 	__nds32__set_pending_swint();
 
-	while (1) {
+	while (1)
+	{
 		/* To test if stack works normally.
 		 * You can comment it if it is not
 		 * necessary. */
 		a= b= c= d= e= f= g= h= 100;
 		a = calc(a, b, c, d, e, f, g, h);
-		if ((a != 2000)
-#if (defined(__NDS32_EXT_FPU_DP__) || defined(__NDS32_EXT_FPU_SP__))
-			|| (f3 != 1.02)
-#endif
-			) {
-#if (defined(__NDS32_EXT_FPU_DP__) || defined(__NDS32_EXT_FPU_SP__))
-			if (f3 != 1.02)
-				uart_puts("\nFPU error!\n");
-#endif
+		if ((a != 2000))
+		{
 			uart_puts("\nSome thing wrong!\n");
 			GIE_DISABLE();
 			return 1;
