@@ -7,6 +7,7 @@
 #include "config.h"
 #include "platform.h"
 #include <stdio.h>
+#include <ctype.h> /* for toupper() */
 
 #include "Driver_GPIO.h"
 #include "Driver_RTC.h"
@@ -44,6 +45,11 @@ extern NDS_DRIVER_GPIO 	Driver_GPIO;
 extern NDS_DRIVER_USART Driver_USART1;
 
 NDS_DRIVER_GPIO*	GPIO_Dri;
+
+
+static uint8_t waitDelay = 0;
+static uint8_t numA = 0;
+static uint8_t numB = 0;
 
 
 static inline void GIE_ENABLE()
@@ -153,18 +159,54 @@ void gpio_callback(uint32_t event)
 //}
 
 
+/// 7 segment value libs.
+uint8_t seven_segment_value[14] = {
+		0x3f, 	// 0.
+		0x06, 	// 1.
+		0xdb, 	// 2.
+		0x4f, 	// 3.
+		0xe6, 	// 4.
+		0x6d, 	// 5.
+		0xfc, 	// 6.
+		0x07, 	// 7.
+		0x7f, 	// 8.
+		0x67,	// 9.
+		0x00,	// Disable.
+
+		0x80,	// Dot.
+		0x37,	// n.
+		0x71,	// f.
+};
+
+
+/***************************************************
+ * @brief  write to 7 segment value (0 - 9).
+ * @retval none
+ ***************************************************/
+void __attribute__((weak)) writesegment(uint8_t numA, uint8_t numB)
+{
+	NDS_DRIVER_GPIO *GPIO_Dri = &Driver_GPIO;
+	GPIO_Dri->Write(GPIO_7SEG_USED_MASK, 1);
+	GPIO_Dri->Write(seven_segment_value[numA] << GPIO_7SEG1_OFFSET, 0);
+	GPIO_Dri->Write(seven_segment_value[numB] << GPIO_7SEG2_OFFSET, 0);
+}
+
+
+
 /**************************************************************
  * @brief	Timer interrupt
  * @retval 	None
  **************************************************************/
 void timer_irq_handler(void)
 {
-	uart_puts("* Enter Timer ISR, It comes in every 4 secs. *\r\n");
+	//uart_puts("* Enter Timer ISR, It comes in every 4 secs. *\r\n");
 
 	/* Clear HW/Timer1 interrupt status */
 	timer_irq_clear(TIMER1);
 
 	GIE_ENABLE();
+
+	waitDelay = 1;
 }
 
 
@@ -204,7 +246,7 @@ static void init_interrupt(void)
 	__nds32__enable_int(NDS32_HWINT(IRQ_SWI_VECTOR));
 
 	/* Start Timer1 with interrupt enabled */
-	unsigned int period = (4 * (PCLKFREQ / TICK_HZ)) >> SIMU_FACTOR;
+	unsigned int period = (1 * (PCLKFREQ / TICK_HZ)) >> SIMU_FACTOR;
 	timer_set_period(TIMER1, period);
 	timer_irq_enable(TIMER1);
 	timer_start(TIMER1);
@@ -243,27 +285,21 @@ NOINLINE int calc(int a, int b, int c, int d, int e, int f, int g, int h)
 	return a;   /* a = 2000 */
 }
 
-volatile int global = 5;
-volatile int global_bss;
+
+
+
+
+
+
 volatile int a, b, c, d, e, f, g, h;
 
 int main(void)
 {
-	uart_puts("\nISR in C example\n");
+	printf("\n\r");
+	printf("=== ISR Test ===\n\r");
 
 	/* Enable global interrupt */
 	GIE_ENABLE();
-
-	if (global !=5) {
-		uart_puts("data section copy failed.\n");
-		while (1) ;
-	}
-	uart_puts("data section copy successfully.\n");
-	if (global_bss != 0) {
-		uart_puts("bss section clear failed.\n");
-		while (1) ;
-	}
-	uart_puts("bss section clean successfully.\n");
 
 	/* This is syscall test.
 	 * You can comment it if it is not necessary. */
@@ -291,6 +327,52 @@ int main(void)
 			GIE_DISABLE();
 			return 1;
 		}
+
+		while(!waitDelay){
+
+		}
+
+		waitDelay = 0;
+		uart_puts("1 secs delay.\r\n");
+
+		if (numA < 9)
+		{
+			numA++;
+		}
+		else
+		{
+			numA = 0;
+			if (numB < 9)
+				numB++;
+			else
+				numB = 0;
+		}
+
+		writesegment(numA, numB);
+
 	}
 	return 0;
 }
+
+
+
+/*
+ * override putchar
+ */
+#undef putchar
+inline int putchar(int c)
+{
+	uart_putc(toupper(c));
+	return c;
+}
+
+__attribute__((used))
+void nds_write(const unsigned char *buf, int size)
+{
+	int i;
+	for (i = 0; i < size; i++)
+		putchar(buf[i]);
+}
+
+
+
